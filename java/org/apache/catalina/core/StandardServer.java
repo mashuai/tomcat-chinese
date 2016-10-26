@@ -56,7 +56,7 @@ import org.apache.tomcat.util.res.StringManager;
 /**
  * Standard implementation of the <b>Server</b> interface, available for use
  * (but not required) when deploying and starting Catalina.
- *
+ * 默认的Server实现。
  * @author Craig R. McClanahan
  */
 public final class StandardServer extends LifecycleMBeanBase implements Server {
@@ -92,6 +92,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
     /**
      * Global naming resources context.
+     * 提供JNDI支持
      */
     private javax.naming.Context globalNamingContext = null;
 
@@ -110,11 +111,13 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
     /**
      * The port number on which we wait for shutdown commands.
+     * 关闭命令监听的端口
      */
     private int port = 8005;
 
     /**
      * The address on which we wait for shutdown commands.
+     * 默认关闭命令必须本机发出
      */
     private String address = "localhost";
 
@@ -128,6 +131,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
     /**
      * The set of Services associated with this Server.
+     * 包含的Service
      */
     private Service services[] = new Service[0];
     private final Object servicesLock = new Object();
@@ -135,6 +139,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
 
     /**
      * The shutdown command string we are looking for.
+     * 关闭命令
      */
     private String shutdown = "SHUTDOWN";
 

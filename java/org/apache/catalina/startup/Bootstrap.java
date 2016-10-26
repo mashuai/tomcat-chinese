@@ -132,15 +132,20 @@ public final class Bootstrap {
      */
     private Object catalinaDaemon = null;
 
-
+    /*
+     CATALINA_HOME/lib
+     */
     ClassLoader commonLoader = null;
+
+    // 在CATALINA_HOME/conf/catalina.properties 配置只有tomcat访问
     ClassLoader catalinaLoader = null;
+    // 在CATALINA_HOME/conf/catalina.properties 配置，所有的webapp都可以访问的lib
     ClassLoader sharedLoader = null;
 
 
     // -------------------------------------------------------- Private Methods
 
-
+    // CATALINA_HOME/conf/catalina.properties 配置 shared.loader 和 server.loader
     private void initClassLoaders() {
         try {
             commonLoader = createClassLoader("common", null);
@@ -160,7 +165,7 @@ public final class Bootstrap {
 
     private ClassLoader createClassLoader(String name, ClassLoader parent)
         throws Exception {
-
+        // 读取catalina.properties 的配置 *.loader
         String value = CatalinaProperties.getProperty(name + ".loader");
         if ((value == null) || (value.equals("")))
             return parent;
@@ -287,6 +292,7 @@ public final class Bootstrap {
 
     /**
      * Load daemon.
+     * 获取catalina 的load函数
      */
     private void load(String[] arguments)
         throws Exception {
@@ -453,7 +459,12 @@ public final class Bootstrap {
     /**
      * Main method and entry point when starting Tomcat via the provided
      * scripts.
-     *
+     * 1、初始化各个class loader 以便Tomcat使用
+     * 2、初始化Tomcat实例
+     * 3、parse server.xml
+     * 4、设置关闭钩子
+     * CATALINA_HOME : bin 存放位置
+     * CATALINA_BASE ：tomcat实例位置
      * @param args Command line arguments to be processed
      */
     public static void main(String args[]) {

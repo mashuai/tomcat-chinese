@@ -264,6 +264,7 @@ public class Catalina {
     /**
      * Create and configure the Digester we will be using for startup.
      * @return the main digester to parse server.xml
+     * 创建解析server.xml的Digester
      */
     protected Digester createStartDigester() {
         long t1=System.currentTimeMillis();
@@ -669,6 +670,8 @@ public class Catalina {
         }
 
         // Register shutdown hook
+        // 注册shutdown hook JVM shutdown
+        // shutdownHook 确认stop调用 内部类
         if (useShutdownHook) {
             if (shutdownHook == null) {
                 shutdownHook = new CatalinaShutdownHook();
@@ -826,6 +829,7 @@ public class Catalina {
         public void run() {
             try {
                 if (getServer() != null) {
+                    // 确认stop函数调用
                     Catalina.this.stop();
                 }
             } catch (Throwable ex) {

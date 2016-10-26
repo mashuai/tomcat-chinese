@@ -44,7 +44,7 @@ import org.apache.tomcat.util.res.StringManager;
  * Standard implementation of the <code>Service</code> interface.  The
  * associated Container is generally an instance of Engine, but this is
  * not required.
- *
+ * 默认的Service实现
  * @author Craig R. McClanahan
  */
 
@@ -57,6 +57,7 @@ public class StandardService extends LifecycleMBeanBase implements Service {
 
     /**
      * The name of this service.
+     * service的名字。
      */
     private String name = null;
 
@@ -89,6 +90,7 @@ public class StandardService extends LifecycleMBeanBase implements Service {
      */
     protected final ArrayList<Executor> executors = new ArrayList<>();
 
+    // 只包含一个Engine
     private Engine engine = null;
 
     private ClassLoader parentClassLoader = null;
