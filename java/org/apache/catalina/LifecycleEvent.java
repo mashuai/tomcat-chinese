@@ -23,6 +23,7 @@ import java.util.EventObject;
  * that implements the Lifecycle interface.
  *
  * @author Craig R. McClanahan
+ * EVENT 类型和附加信息
  */
 public final class LifecycleEvent extends EventObject {
 

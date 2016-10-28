@@ -500,6 +500,7 @@ public class Catalina {
 
     /**
      * Start a new server instance.
+     * 启动server
      */
     public void load() {
 

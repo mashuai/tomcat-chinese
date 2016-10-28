@@ -43,6 +43,8 @@ import org.apache.tomcat.util.res.StringManager;
  * access the information using a facade, which provides the high-level view
  * of the request.
  *
+ * 内部使用
+ *
  * Tomcat defines a number of attributes:
  * <ul>
  *   <li>"org.apache.tomcat.request" - allows access to the low-level
@@ -563,7 +565,7 @@ public final class Request {
 
 
     // -------------------- Recycling --------------------
-
+    // 重置数据
 
     public void recycle() {
         bytesRead=0;

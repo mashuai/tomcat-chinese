@@ -420,6 +420,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
     @Override
     public void await() {
         // Negative values - don't wait on port - tomcat is embedded or we just don't like ports
+        // embeded 模式使用
         if( port == -2 ) {
             // undocumented yet - for embedding apps that are around, alive.
             return;
@@ -441,6 +442,7 @@ public final class StandardServer extends LifecycleMBeanBase implements Server {
         }
 
         // Set up a server socket to wait on
+        // 打开socket端口监听关闭命令
         try {
             awaitSocket = new ServerSocket(port, 1,
                     InetAddress.getByName(address));

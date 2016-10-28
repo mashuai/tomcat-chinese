@@ -123,6 +123,7 @@ import org.apache.tomcat.util.res.StringManager;
  * </table>
  * Subclasses that fire additional events should document them in the
  * class comments of the implementation class.
+ * abstract 确保不会被实例化
  *
  * @author Craig R. McClanahan
  */

@@ -66,6 +66,7 @@ public class Connector extends LifecycleMBeanBase  {
         this(null);
     }
 
+    // 根据 server.xml 配置 设置使用哦handlerClass
     public Connector(String protocol) {
         setProtocol(protocol);
         // Instantiate protocol handler
@@ -537,6 +538,7 @@ public class Connector extends LifecycleMBeanBase  {
 
     /**
      * Set the Coyote protocol which will be used by the connector.
+     * 根据协议名字设置connector
      *
      * @param protocol The Coyote protocol name
      */
@@ -574,7 +576,7 @@ public class Connector extends LifecycleMBeanBase  {
     /**
      * Set the class name of the Coyote protocol handler which will be used
      * by the connector.
-     *
+     * 设置handlerClass全名
      * @param protocolHandlerClassName The new class name
      */
     public void setProtocolHandlerClassName(String protocolHandlerClassName) {

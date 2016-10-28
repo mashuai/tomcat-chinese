@@ -79,6 +79,7 @@ package org.apache.catalina;
  * attempted transition is not valid.
  *
  * @author Craig R. McClanahan
+ * 使用观察者模式
  */
 public interface Lifecycle {
 
@@ -177,6 +178,7 @@ public interface Lifecycle {
      * Add a LifecycleEvent listener to this component.
      *
      * @param listener The listener to add
+     * 添加Listener
      */
     public void addLifecycleListener(LifecycleListener listener);
 
@@ -187,6 +189,7 @@ public interface Lifecycle {
      * @return An array containing the life cycle listeners associated with this
      *         life cycle. If this component has no listeners registered, a
      *         zero-length array is returned.
+     *  查找component的listeners
      */
     public LifecycleListener[] findLifecycleListeners();
 
@@ -195,6 +198,7 @@ public interface Lifecycle {
      * Remove a LifecycleEvent listener from this component.
      *
      * @param listener The listener to remove
+     * 移出listener
      */
     public void removeLifecycleListener(LifecycleListener listener);
 

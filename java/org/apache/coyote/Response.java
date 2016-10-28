@@ -32,6 +32,7 @@ import org.apache.tomcat.util.res.StringManager;
 
 /**
  * Response object.
+ * 内部使用
  *
  * @author James Duncan Davidson [duncan@eng.sun.com]
  * @author Jason Hunter [jch@eng.sun.com]
